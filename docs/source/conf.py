@@ -272,6 +272,10 @@ def setup(app):
 # p = subprocess.call(['./autogen_sphinx_apidoc.sh'])
 # os.chdir(WILL_CUR_DIR)
 
+print "PRINTING MODULES **********************************************"
+
+help('modules')
+
 # Mock out imports with C externs
 import sys
 
