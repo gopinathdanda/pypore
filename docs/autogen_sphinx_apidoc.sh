@@ -5,10 +5,10 @@
 
 set -ex
 
-SPHINX_DIR=docs
+SPHINX_DIR=.
 SPHINX_SOURCE_DIR=$SPHINX_DIR/source
 SPHINX_AUTODOC_DIR=$SPHINX_SOURCE_DIR/autodocs
-SOURCE_DIR=src
+SOURCE_DIR=../src
 
 # remove previous autodocs
 rm -rf $SPHINX_AUTODOC_DIR/*
@@ -20,8 +20,3 @@ rm -rf $SPHINX_AUTODOC_DIR/*
 TEST_PATHS=`find ${SOURCE_DIR} -name tests`
 sphinx-apidoc -o $SPHINX_AUTODOC_DIR $SOURCE_DIR -f -e -d 3 ${TEST_PATHS}
 
-
-# cd to the sphinx dir, clean, then build html
-cd $SPHINX_DIR
-make clean
-make html
