@@ -15,7 +15,7 @@
     :target: https://coveralls.io/r/parkin/pypore?branch=develop
    
 Pypore
-=======
+======
 
 This project is for nanopore-translocation event finding/analysis.
 It's written in Python, with `numpy <http://www.numpy.org/>`_/`scipy <http://www.scipy.org/>`_ as a Matlab replacement.
