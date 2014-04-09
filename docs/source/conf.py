@@ -264,3 +264,10 @@ def skip(app, what, name, obj, skip, options):
 
 def setup(app):
     app.connect("autodoc-skip-member", skip)
+
+# Run the autodoc script
+WILL_CUR_DIR = os.getcwd()
+os.chdir('../')
+import subprocess
+p = subprocess.call(['./autogen_sphinx_apidoc.sh'])
+os.chdir(WILL_CUR_DIR)
