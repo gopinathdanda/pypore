@@ -5,8 +5,8 @@ data/*
 *.pyc
 
 # sphinx files generated during build
-website/sphinx-docs/build/
-website/sphinx-docs/source/autodocs
+docs/build/
+docs/source/autodocs
 
 # setup.py generated files #
 ############################
