@@ -243,7 +243,6 @@ if __name__ == '__main__':
     if not on_rtd:
         setup_package()
     else:
-        p = subprocess.call(['echo "ls"'])
         p = subprocess.call(['ls'])
         fullversion, git_revision = get_version_info()
         import subprocess
