@@ -279,6 +279,7 @@ help('modules')
 # Mock out imports with C externs
 import sys
 
+
 class Mock(object):
 
     __all__ = []
@@ -300,6 +301,6 @@ class Mock(object):
         else:
             return Mock()
 
-MOCK_MODULES = ['pypore', 'Cython', 'tables', 'PySide']
+MOCK_MODULES = ['Cython', 'tables', 'PySide']
 for mod_name in MOCK_MODULES:
     sys.modules[mod_name] = Mock()
