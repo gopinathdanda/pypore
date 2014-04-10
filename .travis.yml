@@ -39,6 +39,7 @@ before_install:
   - python -V
   - pip -V
   - travis_retry sudo apt-get update -qq
+  - travis_retry sudo apt-get install curl
 
 install:
   - travis_retry sudo apt-get install libhdf5-serial-dev

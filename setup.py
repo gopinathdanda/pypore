@@ -128,14 +128,7 @@ def get_version_info():
     if not IS_RELEASE:
         # If we are deploying from the Travis CI server, then add a time string to the version,
         # Hopefully it increments better.
-        # TODO change this to 'git describe' once we tag a version.
-        if 'TRAVIS_PYTHON_VERSION' in os.environ:
-            import time
-            time_str = time.strftime('%Y%m%d%H%M%S') + '-'
-        else:
-            time_str = ''
-        import time
-        full_version += '.dev-' + time_str + git_revision[:7]
+        full_version += '.dev-' + git_revision[:7]
 
     return full_version, git_revision
 
@@ -244,4 +237,22 @@ def setup_package():
 
 
 if __name__ == '__main__':
-    setup_package()
+    # on_rtd is whether we are on readthedocs.org
+    import os
+    on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
+    if not on_rtd:
+        setup_package()
+    else:
+        fullversion, git_revision = get_version_info()
+        import subprocess
+        pre = 'pip install pypore==' + fullversion + ' --pre'
+        print "pip command:", pre
+        p = subprocess.call([pre])
+
+        # make the documentation
+
+        WILL_CUR_DIR = os.getcwd()
+        os.chdir('docs')
+        import subprocess
+        p = subprocess.call(['./autogen_sphinx_apidoc.sh'])
+        os.chdir(WILL_CUR_DIR)

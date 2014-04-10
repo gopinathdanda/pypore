@@ -301,6 +301,6 @@ class Mock(object):
         else:
             return Mock()
 
-MOCK_MODULES = ['Cython', 'tables', 'PySide']
+MOCK_MODULES = ['Cython', 'tables', 'PySide', 'pyqtgraph']
 for mod_name in MOCK_MODULES:
     sys.modules[mod_name] = Mock()
