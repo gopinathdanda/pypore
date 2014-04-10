@@ -252,6 +252,9 @@ if __name__ == '__main__':
         # make the documentation
 
         WILL_CUR_DIR = os.getcwd()
+        print "CUR_DIR:", WILL_CUR_DIR
+        files = [f for f in os.listdir('.')]
+        print "CUR_DIR ls:", files
         os.chdir('docs')
         import subprocess
         p = subprocess.call(['./autogen_sphinx_apidoc.sh'])
